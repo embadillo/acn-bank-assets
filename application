@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACN Bank - Credit Product Application Package</title>
+  <style>
+    :root {
+      --accent: #5f168f;
+      --accent-light: #efe5f6;
+      --line: #cfcfcf;
+      --text: #1d1d1f;
+      --muted: #555;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f4f6;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 24px auto;
+      padding: 0.42in 0.45in;
+      background: var(--bg);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .top-bar {
+      border: 1.5px solid var(--accent);
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .brand-main {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-side {
+      text-align: left;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .brand-side span {
+      display: block;
+      color: #333;
+      font-size: 10px;
+      font-weight: 400;
+      margin-top: 3px;
+    }
+
+    h1 {
+      font-size: 23px;
+      margin: 0 0 4px;
+      letter-spacing: -0.25px;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+      color: #222;
+      max-width: 720px;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .section-title {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    td, th {
+      border: 1px solid var(--line);
+      padding: 7px 8px;
+      vertical-align: top;
+      min-height: 28px;
+    }
+
+    th,
+    td.label {
+      width: 27%;
+      background: #f3f3f3;
+      font-weight: 700;
+    }
+
+    .purple-label {
+      background: var(--accent-light) !important;
+    }
+
+    .value {
+      color: #333;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .ack-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .ack-list li {
+      margin: 2px 0;
+    }
+
+    .ack-list li::before {
+      content: "- ";
+    }
+
+    .notice {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #333;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    .signature-cell {
+      height: 38px;
+    }
+
+    .signature-img {
+      max-height: 34px;
+      max-width: 220px;
+      display: block;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: auto;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top-bar">
+      <div class="brand-main">ACN Bank</div>
+      <div class="brand-side">
+        accenture
+        <span>Demo banking experience</span>
+      </div>
+    </header>
+
+    <section>
+      <h1>Credit Product Application Package</h1>
+      <p class="subtitle">
+        Prepared for customer review and electronic signature. This document summarizes the information currently on file and the selected product application details.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Document Information</div>
+      <table aria-label="Document Information">
+        <tr>
+          <td class="label purple-label">Document ID</td>
+          <td class="value">{{document_id}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Generated</td>
+          <td class="value">{{generated_at}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Signature Method</td>
+          <td class="value">{{signature_method}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Application Status</td>
+          <td class="value">{{application_status}}</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Customer Information</div>
+      <table aria-label="Customer Information">
+        <tr>
+          <td class="label">Legal Name</td>
+          <td class="value">{{legal_name}}</td>
+        </tr>
+        <tr>
+          <td class="label">Preferred Name</td>
+          <td class="value">{{preferred_name}}</td>
+        </tr>
+        <tr>
+          <td class="label">Customer ID</td>
+          <td class="value">{{customer_id}}</td>
+        </tr>
+        <tr>
+          <td class="label">Account Number</td>
+          <td class="value">{{account_number}}</td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="value">{{email}}</td>
+        </tr>
+        <tr>
+          <td class="label">Registered Mobile</td>
+          <td class="value">{{registered_mobile}}</td>
+        </tr>
+        <tr>
+          <td class="label">Province</td>
+          <td class="value">{{province}}</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Selected Product</div>
+      <table aria-label="Selected Product">
+        <tr>
+          <td class="label">Product Category</td>
+          <td class="value">{{product_category}}</td>
+        </tr>
+        <tr>
+          <td class="label">Selected Product</td>
+          <td class="value">{{selected_product_name}}</td>
+        </tr>
+        <tr>
+          <td class="label">Application Type</td>
+          <td class="value">{{application_type}}</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Customer Acknowledgements</div>
+      <ul class="ack-list">
+        <li>I confirm that the information shown in this application package is accurate to the best of my knowledge.</li>
+        <li>I authorize ACN Bank to use the information already on file to prepare and process this application.</li>
+        <li>I understand that submitting this application does not guarantee approval.</li>
+        <li>I understand that credit decisions are subject to eligibility, verification, and underwriting review.</li>
+        <li>I agree to receive and sign this application package electronically.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Electronic Signature</div>
+      <table aria-label="Electronic Signature">
+        <tr>
+          <td class="label purple-label">Electronic Signature</td>
+          <td class="value signature-cell">{{electronic_signature}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Customer Name</td>
+          <td class="value">{{signature_customer_name}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Signature Date</td>
+          <td class="value">{{signature_date}}</td>
+        </tr>
+        <tr>
+          <td class="label purple-label">Consent Timestamp</td>
+          <td class="value">{{consent_timestamp}}</td>
+        </tr>
+      </table>
+    </section>
+
+    <footer class="notice">
+      Demo notice: This document is generated for demonstration purposes and does not represent a real banking contract, credit approval, or legal commitment.
+    </footer>
+  </main>
+</body>
+</html>
